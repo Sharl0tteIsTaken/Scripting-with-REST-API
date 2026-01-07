@@ -2,10 +2,26 @@
     "Description": {
         "This key and all it's value (a key-value pair) called a property": {
             "key": "value",
-            "the property below": "is a description of data structure in this file (except for this description)"
+            "note-1": "The` angle bracket problem` and `format problem` uses overlapping keys, after fixing the `format problem`, ",
+            "note-2": "just move the property from `{file type} - format` to `{file type} - angle bracket` and everything should work.",
+            "The property below": "Is a description of data structure in this file (except for this description).",
+            "The property below the data structure property": "Is a description of what the key stand for (except for this description)."
         },
-        "file type - problem the issue trying to solve": {
+        "{file type} - {problem the issue trying to solve}": {
             "placeholder": "replacement"
+        },
+        "key description": {
+            "reason": "The reason why it's the value for `special` key, or the minor question that I have (if it is not in the `special` key).",
+            "code": "The language code, the suffix before the file format.",
+            "language": "The language of the file is written in. The value of the key will be used in template.",
+            "code_lang_ref": "The references I found to prove the relationship between the language code and the language of the file.",
+            "chapter_name": "The name of the chapter of the angle bracket problem. The value of the key will be used in template.",
+            "chapter_link": "The link to the chapter of the angle bracket problem. The value of the key will be used in template.",
+            "summary": "The summary line of the HTML `<details>` tag, this helps contributor to find the problem location in the file. The value of the key will be used in template.",
+            "filepath": "The URL of the file in the repository.",
+            "problem": "The problem of the format, properties with this key needs to use the format template first. The value of the key will be used in template.",
+            "done": "`What need to be done`, this is also the name of the section in the template (pretty neat!). The value of the key will be used in template.",
+            "note": "Any thing unclear."
         }
     },
     "README - angle bracket": [
@@ -260,6 +276,15 @@
             "chapter_link": "https://github.com/firstcontributions/first-contributions/blob/main/docs/translations/README.ec.md#haz-un-push-de-tus-cambios-a-github",
             "summary": "Si obtienes algún error al enviar (Push), haz clic aquí:",
             "filepath": "https://github.com/firstcontributions/first-contributions/blob/main/docs/translations/README.ec.md"
+        },
+        {
+            "code": "mn",
+            "language": "Mongolian",
+            "code_lang_ref": "https://github.com/firstcontributions/first-contributions/issues/108323",
+            "chapter_name": "Гитхаб руу пушлэх",
+            "chapter_link": "https://github.com/firstcontributions/first-contributions/blob/main/docs/translations/README.mn.md#%D0%B3%D0%B8%D1%82%D1%85%D0%B0%D0%B1-%D1%80%D1%83%D1%83-%D0%BF%D1%83%D1%88%D0%BB%D1%8D%D1%85",
+            "summary": "Пушлэх үйлдэл дээр ямар нэгэн алдаа заавал энд дарж харах:",
+            "filepath": "https://github.com/firstcontributions/first-contributions/blob/main/docs/translations/README.mn.md"
         }
     ],
     "README - format": [
@@ -346,7 +371,7 @@
             "language": "Assamese",
             "code_lang_ref": "https://github.com/firstcontributions/first-contributions/issues/105998",
             "chapter_name": "পৰিবৰ্তনসমূহ GitHub ত Push কৰক",
-            "chapter_link": "",
+            "chapter_link": "https://github.com/firstcontributions/first-contributions/blob/main/docs/translations/README.assamese.md#%E0%A6%AA%E0%A7%B0%E0%A6%BF%E0%A6%AC%E0%A7%B0%E0%A7%8D%E0%A6%A4%E0%A6%A8%E0%A6%B8%E0%A6%AE%E0%A7%82%E0%A6%B9-github-%E0%A6%A4-push-%E0%A6%95%E0%A7%B0%E0%A6%95",
             "summary": "যদি আপুনি Push কৰাৰ সময়ত কোনো ত্ৰুটি পায়, ইয়াত ক্লিক কৰক:",
             "filepath": "https://github.com/firstcontributions/first-contributions/blob/main/docs/translations/README.assamese.md",
             "problem": "missing indentation causes part of error code to be outside of code block.",
@@ -448,7 +473,7 @@
             "reason": "Not that sure with the `language name`, ask before create.",
             "code": "francais",
             "language": "French",
-            "code_lang_ref": "",
+            "code_lang_ref": "https://github.com/firstcontributions/first-contributions/pull/76906",
             "chapter_name": "Envoyez les modifications sur GitHub",
             "chapter_link": "https://github.com/firstcontributions/first-contributions/blob/main/docs/cli-tool-tutorials/github-cli-tutorials-francais.md#envoyez-les-modifications-sur-github",
             "summary": "Si vous obtenez des erreurs lors de la soumission, cliquez ici :",
@@ -500,7 +525,18 @@
             "summary": "यदि आपको पुश करते समय कोई त्रुटि मिलती है, तो यहां क्लिक करें:",
             "filepath": "https://github.com/firstcontributions/first-contributions/blob/main/docs/cli-tool-tutorials/translations/github-cli-tutorial.hi.md",
             "problem": "lack of line breaks caused three lines of error codes to display on the same line.",
-            "done": "Add line breaks as in the original [README](https://github.com/firstcontributions/first-contributions/blob/main/README.md#push-changes-to-github), like [this](https://github.com/firstcontributions/first-contributions/blob/main/README.md?plain=1#L200C1-L202C109)."
+            "done": "Add line breaks as in the original [README](https://github.com/firstcontributions/first-contributions/blob/main/docs/cli-tool-tutorials/github-cli-tutorial.md#push-changes-to-github), like [this](https://github.com/firstcontributions/first-contributions/blob/main/docs/cli-tool-tutorials/github-cli-tutorial.md?plain=1#L75C1-L77C103)."
+        },
+        {
+            "code": "german",
+            "language": "German",
+            "code_lang_ref": "The code should be the `language name`",
+            "chapter_name": "Schieben Sie Änderungen zu GitHub",
+            "chapter_link": "https://github.com/firstcontributions/first-contributions/blob/main/docs/cli-tool-tutorials/github-cli-tutorial-german.md#schieben-sie-%C3%A4nderungen-zu-github",
+            "summary": "Wenn Sie beim Verschieben Fehler bekommen, klicken Sie hier:",
+            "filepath": "https://github.com/firstcontributions/first-contributions/blob/main/docs/cli-tool-tutorials/github-cli-tutorial-german.md",
+            "problem": "missing HTML `<pre>` tag around error code and lack of line breaks caused three lines of error codes to display on the same line.",
+            "done": "Add HTML `<pre>` tag and line breaks as in the original [README](https://github.com/firstcontributions/first-contributions/blob/main/docs/cli-tool-tutorials/github-cli-tutorial.md#push-changes-to-github), like [this](https://github.com/firstcontributions/first-contributions/blob/main/docs/cli-tool-tutorials/github-cli-tutorial.md?plain=1#L75C1-L77C103)."
         }
     ],
     "special": [
