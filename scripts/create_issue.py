@@ -3,7 +3,7 @@ This script is designed to create issues based on the provided template,
 and replace the placeholders with the replacements in placeholder.json.
 
 The `.env` file should contain the following variables and values:
- - ENDPOINT=/repos/{owner}/{repo}/issues
+ - ENDPOINT=https://api.github.com/repos/{owner}/{repo}/issues
  - NAME=Your_GitHub_UserName
  - TOKEN=Your_GitHub_Fine_Grained_Personal_Access_Token
  - DATA_FOLDER=assets
@@ -25,15 +25,15 @@ import requests  # pyright: ignore[reportUnusedImport],  # noqa: F401
 
 # Custom types
 type Cases = Literal["case 1", "case 2"]
-type FileTypes = Literal["README", "cli tool tutorials"]
+type FileTypes = Literal["README", "cli tool tutorial"]
 type IssueTarget = Literal["angle bracket", "format"]
 type PlaceholderType = dict[str, list[dict[str, str]]]
 
 
 # Dash Board (To run the script for different settings, modify here)
 # !==========================================!
-FILE_TYPE: FileTypes = "cli tool tutorials"
-PURPOSE: IssueTarget = "format"
+FILE_TYPE: FileTypes = "cli tool tutorial"
+ABOUT: IssueTarget = "angle bracket"
 # !==========================================!
 
 # Script Enum
@@ -43,13 +43,13 @@ ISSUE: dict[Cases, IssueTarget] = {
 }
 FILE: dict[Cases, FileTypes] = {
     "case 1": "README",
-    "case 2": "cli tool tutorials",
+    "case 2": "cli tool tutorial",
 }
 
 # Final product (issue) related constant
-TITLE_1 = "Fix angle brackets within HTML <pre> tag in {language} translation"
-TITLE_2 = "Fix formatting problem in the {language} translation"
-TITLE = TITLE_1 if PURPOSE == ISSUE["case 1"] else TITLE_2
+TITLE_1 = "Replace angle brackets in the {language} translation of {file}"
+TITLE_2 = "Fix the formatting in the {language} translation of {file}"
+TITLE = TITLE_1 if ABOUT == ISSUE["case 1"] else TITLE_2
 
 LABELS = ['documentation', 'help wanted', 'good first issue', 'enhancement']
 FNAME = FILE_TYPE
@@ -59,18 +59,18 @@ FNAME = FILE_TYPE
 ERRMSG = "Environment variable `{var}` don't exist, check `.env` file."
 
 # Script related constant
-SELECTED_SETTING = FILE_TYPE + " - " + PURPOSE
+SELECTED_SETTING = FILE_TYPE + " - " + ABOUT
 
 DATA_FOLDER = os.getenv("DATA_FOLDER")
-TEMPLATE_FNAME_1 = os.getenv("TEMPLATE_FNAME_1")
-TEMPLATE_FNAME_2 = os.getenv("TEMPLATE_FNAME_2")
+FNAME_1 = os.getenv("TEMPLATE_FNAME_1")
+FNAME_2 = os.getenv("TEMPLATE_FNAME_2")
 PLACEHOLDER = os.getenv("PLACEHOLDER")
 assert isinstance(DATA_FOLDER, str), ERRMSG.format(var="DATA_FOLDER")
-assert isinstance(TEMPLATE_FNAME_1, str), ERRMSG.format(var="TEMPLATE_FNAME_1")
-assert isinstance(TEMPLATE_FNAME_2, str), ERRMSG.format(var="TEMPLATE_FNAME_2")
+assert isinstance(FNAME_1, str), ERRMSG.format(var="FNAME_1")
+assert isinstance(FNAME_2, str), ERRMSG.format(var="FNAME_2")
 assert isinstance(PLACEHOLDER, str), ERRMSG.format(var="PLACEHOLDER")
 
-SUB_DIR = TEMPLATE_FNAME_1 if PURPOSE == ISSUE["case 1"] else TEMPLATE_FNAME_2
+SUB_DIR = FNAME_1 if ABOUT == ISSUE["case 1"] else FNAME_2
 PATH_TEMPLATE = os.path.join(DATA_FOLDER, SUB_DIR)
 PATH_PLACEHOLDER = os.path.join(DATA_FOLDER, PLACEHOLDER)
 
@@ -125,6 +125,7 @@ for placeholder in placeholders[SELECTED_SETTING]:
             + "labels: " + ", ".join(params["labels"]) + "\n" + "-->" + "\n\n"
             + params["body"]
         )
+
     # Note: Title and labels was commented out for easier preview.
     # Markdown can be used in the GitHub web interface, and markdown
     # support HTML comments. So HTML comment syntax was used here.
